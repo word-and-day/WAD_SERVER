@@ -17,25 +17,28 @@ db.Teacher = require("./teacher")(sequelize, Sequelize);
 db.Text = require("./text")(sequelize, Sequelize);
 db.User = require("./user")(sequelize, Sequelize);
 
-db.User.hasOne(db.Group);
-db.Group.belongsTo(db.User);
+db.Teacher.hasOne(db.User);
+db.User.belongsTo(db.Teacher);
 
-db.User.hasOne(db.School);
-db.School.belongsTo(db.User);
+db.Group.hasOne(db.User);
+db.User.belongsTo(db.Group);
 
-db.User.hasMany(db.Text);
+db.Schedule.hasOne(db.Group);
+db.Group.belongsTo(db.Schedule);
+
+db.School.hasOne(db.Group);
+db.Group.belongsTo(db.School);
+
+db.Group.hasOne(db.Text);
+db.Text.belongsTo(db.Group);
+
+db.User.hasOne(db.Text);
 db.Text.belongsTo(db.User);
+
+db.School.hasOne(db.Teacher);
+db.Teacher.belongsTo(db.School);
 
 db.Group.hasOne(db.Teacher);
 db.Teacher.belongsTo(db.Group);
-
-db.Group.hasOne(db.School);
-db.School.belongsTo(db.Group);
-
-db.Teacher.hasOne(db.School);
-db.School.belongsTo(db.Teacher);
-
-db.Schedule.hasOne(db.Group);
-db.Schedule.belongsTo(db.Schedule);
 
 module.exports = db;
