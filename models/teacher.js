@@ -4,6 +4,7 @@ module.exports = (sequelize, Datatypes)=>{
             type: Datatypes.STRING(15),
             allowNull: false,
             unique: true,
+            primaryKey: true,
         },
         password: {
             type: Datatypes.STRING(256),
