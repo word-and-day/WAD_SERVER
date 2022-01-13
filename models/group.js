@@ -4,6 +4,7 @@ module.exports = (sequelize, Datatypes)=>{
             type: Datatypes.STRING(12),
             allowNull: false,
             unique: true,
+            primaryKey: true,
         },
         group_name: {
             type: Datatypes.STRING(25),
