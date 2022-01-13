@@ -4,7 +4,7 @@ module.exports = (sequelize, Datatypes)=>{
             type: Datatypes.INTEGER,
             allowNull: false,
             unique: true,
-            autoIncreament: true,
+            primaryKey: true,
         },
         school_name: {
             type: Datatypes.STRING(30),
